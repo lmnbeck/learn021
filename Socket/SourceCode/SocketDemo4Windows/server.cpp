@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <winsock2.h>
-#pragma comment (lib, "ws2_32.lib")  //使用pragma，编译时加载 ws2_32.dll
+//#pragma comment (lib, "ws2_32.lib")  //VC环境使用pragma，编译时加载 ws2_32.dll
 
 int main(){
     //初始化 DLL
@@ -27,7 +27,7 @@ int main(){
     SOCKET clntSock = accept(servSock, (SOCKADDR*)&clntAddr, &nSize);
 
     //向客户端发送数据
-    char *str = "Hello World!";
+    char str[] = "Hello World!";
     send(clntSock, str, strlen(str)+sizeof(char), NULL);
 
     //关闭套接字

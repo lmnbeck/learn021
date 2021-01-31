@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <WinSock2.h>
-#pragma comment(lib, "ws2_32.lib")  //加载 ws2_32.dll
+//#pragma comment(lib, "ws2_32.lib")  //VC环境加载 ws2_32.dll
 
 int main(){
     //初始化DLL
