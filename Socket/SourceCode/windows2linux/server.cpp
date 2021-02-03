@@ -7,9 +7,9 @@
 
 int main(){
     //先检查文件是否存在
-    //char *filename = "D:\\send.avi";  //文件名
+    // char filename[] = "D:\\RECAIUS_CH_0307.mp4";  //文件名
     char filename[100] = {0};  //文件名
-    printf("Input filename to send (ie. D:\\send.avi):");
+    printf("Input filename to send (ie. D:\\\\send.avi):");
     gets(filename);
     FILE *fp = fopen(filename, "rb");  //以二进制方式打开文件
     if(fp == NULL){
@@ -25,7 +25,7 @@ int main(){
     sockaddr_in sockAddr;
     memset(&sockAddr, 0, sizeof(sockAddr));
     sockAddr.sin_family = PF_INET;
-    sockAddr.sin_addr.s_addr = inet_addr("192.168.0.106");
+    sockAddr.sin_addr.s_addr = inet_addr("192.168.1.106");
     sockAddr.sin_port = htons(1234);
     bind(servSock, (SOCKADDR*)&sockAddr, sizeof(SOCKADDR));
     listen(servSock, 20);
