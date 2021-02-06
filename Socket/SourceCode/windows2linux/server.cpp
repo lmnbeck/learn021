@@ -14,7 +14,7 @@ int main(){
     // char filename[] = "D:\\RECAIUS_CH_0307.mp4";  //文件名
     char filename[100] = {0};  //文件名
     printf("Input filename to send (ie. D:\\\\send.avi):");
-    scanf("%s", filename);
+    sscanf() scanf("%s", filename);
     FILE *fp = fopen(filename, "rb");  //以二进制方式打开文件
     if(fp == NULL){
         printf("Cannot open file, press any key to exit!\n");
@@ -24,13 +24,14 @@ int main(){
 
     // WSADATA wsaData;
     // WSAStartup( MAKEWORD(2, 2), &wsaData);
-    int servSock = socket(AF_INET, SOCK_STREAM, 0);
+    int servSock = socket(PF_INET, SOCK_STREAM, 0);
 
     sockaddr_in sockAddr;
     memset(&sockAddr, 0, sizeof(sockAddr));
     sockAddr.sin_family = PF_INET;
     // sockAddr.sin_addr.s_addr = inet_addr("192.168.1.106");
     sockAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+    printf("sockAddr.sin_addr.s_addr = %d", sockAddr.sin_addr.s_addr);
     sockAddr.sin_port = htons(1234);
     // bind(servSock, (SOCKADDR*)&sockAddr, sizeof(SOCKADDR));
     bind(servSock, (struct sockaddr*)&sockAddr, sizeof(sockAddr));

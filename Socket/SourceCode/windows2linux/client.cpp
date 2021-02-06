@@ -24,8 +24,8 @@ int main(){
     sockaddr_in sockAddr;
     memset(&sockAddr, 0, sizeof(sockAddr));
     sockAddr.sin_family = PF_INET;
-    sockAddr.sin_addr.s_addr = inet_addr("123.56.164.123");
-    sockAddr.sin_port = htons(1234);
+    sockAddr.sin_addr.s_addr = inet_addr("123.56.164.123"); //连接阿里云client用公网ip,服务器用ifconfig ip
+    sockAddr.sin_port = htons(80);
     connect(sock, (SOCKADDR*)&sockAddr, sizeof(SOCKADDR));
 
     //循环接收数据，直到文件传输完�?
